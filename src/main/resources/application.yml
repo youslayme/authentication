@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: authorization
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authorization
+    username: test
+    password: test
+server:
+  port: 9090
