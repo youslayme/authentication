@@ -4,7 +4,46 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="0" author="admin">
+    <changeSet id="2024-10-09-EW-2_create-e_role" author="Chardona">
+        <sql>
+            CREATE TABLE e_role
+            (
+                id   SMALLINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                name TEXT
+            );
 
+            COMMENT ON TABLE e_role IS 'Роли пользователей';
+            COMMENT ON COLUMN e_role.id IS 'Уникальный идентификатор роли';
+            COMMENT ON COLUMN e_role.name IS 'Название роли';
+        </sql>
     </changeSet>
+
+    <changeSet id="2024-10-09-EW-2_create-e_user-table" author="Chardona">
+        <sql>
+            CREATE TABLE e_user (
+                id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                first_name TEXT,
+                surname TEXT,
+                login VARCHAR(20) NOT NULL UNIQUE,
+                password VARCHAR(60) NOT NULL,
+                email TEXT NOT NULL UNIQUE,
+                registration_date DATE NOT NULL,
+                role_id SMALLINT NOT NULL,
+                CONSTRAINT fk_e_user_role
+                    FOREIGN KEY (role_id)
+                    REFERENCES e_role (id)
+            );
+
+            COMMENT ON TABLE e_user IS 'Пользователи';
+            COMMENT ON COLUMN e_user.id IS 'Уникальный идентификатор пользователя';
+            COMMENT ON COLUMN e_user.first_name IS 'Имя пользователя';
+            COMMENT ON COLUMN e_user.surname IS 'Фамилия пользователя';
+            COMMENT ON COLUMN e_user.login IS 'Уникальный логин пользователя';
+            COMMENT ON COLUMN e_user.password IS 'Пароль пользователя';
+            COMMENT ON COLUMN e_user.email IS 'Электронная почта пользователя';
+            COMMENT ON COLUMN e_user.registration_date IS 'Дата регистрации пользователя';
+            COMMENT ON COLUMN e_user.role_id IS 'Идентификатор роли пользователя';
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
