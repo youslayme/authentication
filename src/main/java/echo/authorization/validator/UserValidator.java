@@ -1,4 +1,4 @@
-package echo.authorization;
+package echo.authorization.validator;
 
 import echo.authorization.dto.AuthenticationPrimaryInfoDto;
 import echo.authorization.dto.RegistrationInfoDto;
