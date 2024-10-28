@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="2024-10-20-EW-5_create-indexes-on-e_user-table" author="Chardona">
+        <!--Нужно сделать отельно на каждый Index свой чейнджсет + повесить <preConditions> <not> -->
+        <sql>
+            CREATE INDEX IF NOT EXISTS idx_login__e_user ON e_user (login);
+
+            CREATE INDEX IF NOT EXISTS idx_email__e_user ON e_user (email)
+        </sql>
+    </changeSet>
+</databaseChangeLog>

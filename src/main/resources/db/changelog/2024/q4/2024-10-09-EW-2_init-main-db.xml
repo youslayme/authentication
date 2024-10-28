@@ -45,5 +45,4 @@
             COMMENT ON COLUMN e_user.role_id IS 'Идентификатор роли пользователя';
         </sql>
     </changeSet>
-
 </databaseChangeLog>
