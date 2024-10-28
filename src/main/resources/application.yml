@@ -11,3 +11,6 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.xml
 server:
   port: 9090
+jwt:
+  secret:
+    access: N1IzSllnbDFOeFI0UmM5YkVicmRNNEp1bGNieHlRRks1eDlXbGVFMktjWT0=

@@ -4,4 +4,5 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <include file="db/changelog/2024/q4/2024-10-09-EW-2_init-main-db.xml"/>
+    <include file="/db/changelog/2024/q4/2024-10-20-EW-5_create_indexes.xml"/>
 </databaseChangeLog>
