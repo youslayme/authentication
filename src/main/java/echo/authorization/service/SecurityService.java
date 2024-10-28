@@ -1,5 +1,6 @@
-package echo.authorization;
+package echo.authorization.service;
 
+import echo.authorization.validator.UserValidator;
 import echo.authorization.dto.AuthenticationPrimaryInfoDto;
 import echo.authorization.dto.AuthenticationSecondaryInfoDto;
 import echo.authorization.dto.UserJwtDto;
