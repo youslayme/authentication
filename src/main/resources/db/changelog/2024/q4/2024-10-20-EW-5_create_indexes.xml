@@ -4,11 +4,24 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="2024-10-20-EW-5_create-indexes-on-e_user-table" author="Chardona">
-        <!--Нужно сделать отельно на каждый Index свой чейнджсет + повесить <preConditions> <not> -->
+    <changeSet id="2024-10-20-EW-5_create-index-on-login__e_user" author="Chardona">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <not>
+                <indexExists indexName="idx_login__e_user" tableName="e_user"/>
+            </not>
+        </preConditions>
         <sql>
             CREATE INDEX IF NOT EXISTS idx_login__e_user ON e_user (login);
+        </sql>
+    </changeSet>
 
+    <changeSet id="2024-10-20-EW-5_create-index-on-email__e_user" author="Chardona">
+        <preConditions onFail="MARK_RAN" onError="WARN">
+            <not>
+                <indexExists indexName="idx_email__e_user" tableName="e_user"/>
+            </not>
+        </preConditions>
+        <sql>
             CREATE INDEX IF NOT EXISTS idx_email__e_user ON e_user (email)
         </sql>
     </changeSet>
