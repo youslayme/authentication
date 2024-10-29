@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping(value = "/registration")
+    @PostMapping(value = "/signin")
     @ResponseStatus(HttpStatus.CREATED)
     public void registration(@RequestBody RegistrationInfoDto registrationInfoDTO) {
         userService.registerNewAccount(registrationInfoDTO);
     }
 
-    @PostMapping(value = "/authorization")
+    @PostMapping(value = "/login")
     @ResponseStatus(HttpStatus.OK)
     public String authentication(@RequestBody AuthenticationPrimaryInfoDto authorizationInfoDTO) {
         return userService.authenticate(authorizationInfoDTO);
